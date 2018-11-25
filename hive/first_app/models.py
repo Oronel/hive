@@ -17,3 +17,6 @@ class Feed(models.Model):
 	date = models.DateField(auto_now=True)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	like = models.CharField(max_length=26)
+
+	def __str__(self):
+		return self.text
