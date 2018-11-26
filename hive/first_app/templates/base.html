@@ -1,0 +1,58 @@
+{% load staticfiles %}
+<html>
+<head>
+<style>
+body {
+    font-size: 28px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: -5;
+    overflow: hidden;
+    background-color: #111;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+li {
+    float: right;
+}
+logo {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 95px 40px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    color: white;
+}
+</style>
+</head>
+<body>
+
+
+
+
+<ul>
+  <logo><a class="active" href="#home">
+    <img src="{% static 'images/hive.jpg' %}">
+  </a></logo>
+  <li><a href="#signup">Sign Up</a></li>
+  <li><a href="#login">Login</a></li>
+</ul>
+
+</body>
+</html>
