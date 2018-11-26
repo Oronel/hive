@@ -13,6 +13,11 @@ class User(models.Model):
 	def __str__(self):
 		return self.full_name
 
+class UserProfileInfo(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	bio = models.CharField(max_length=400)
+	profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+
 
 class Feed(models.Model):
 	text = models.TextField(max_length=140)
