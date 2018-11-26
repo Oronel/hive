@@ -9,14 +9,13 @@ class User(models.Model):
 	full_name = models.CharField(max_length=264)
 	password = models.CharField(max_length=264)
 	bio = models.CharField(max_length=264)
+	profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
+
+
 
 	def __str__(self):
 		return self.full_name
 
-class UserProfileInfo(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	bio = models.CharField(max_length=400)
-	profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
 
 
 class Feed(models.Model):
