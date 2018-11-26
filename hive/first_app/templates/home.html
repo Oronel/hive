@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <html>
 <head>
 <style>
@@ -8,9 +9,9 @@ body {
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: -5;
     overflow: hidden;
-    background-color: #333;
+    background-color: #111;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
@@ -23,12 +24,11 @@ logo {
     float: left;
 }
 
-
 li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 40px;
+    padding: 95px 40px;
     text-decoration: none;
 }
 
@@ -37,7 +37,7 @@ li a:hover {
 }
 
 .active {
-    background-color: #4CAF50;
+    color: white;
 }
 </style>
 </head>
@@ -46,11 +46,13 @@ li a:hover {
 <div class="header">
   <h2>Home Page</h2>
 
-</div>
+</div>ß
 
 
 <ul>
-  <logo><a class="active" href="#home">Logo</a></logo>
+  <logo><a class="active" href="#home">
+    <img src="{% static 'images/hive.jpg' %}">
+  </a></logo>
   <li><a href="#signup">Sign Up</a></li>
   <li><a href="#login">Login</a></li>
 </ul>
