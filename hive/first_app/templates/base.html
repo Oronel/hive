@@ -9,7 +9,6 @@ body {
 ul {
     list-style-type: none;
     margin: 0;
-    padding: -5;
     overflow: hidden;
     background-color: #111;
     position: -webkit-sticky; /* Safari */
@@ -22,13 +21,14 @@ li {
 }
 logo {
     float: left;
+    margin: -40px 0px -40px 0px;
 }
 
 li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 95px 40px;
+    padding: 50px 50px;
     text-decoration: none;
 }
 
@@ -46,13 +46,15 @@ li a:hover {
 
 
 
-<ul>
+<ul style="height: 120px">
   <logo><a class="active" href="#home">
     <img src="{% static 'images/hive.jpg' %}">
   </a></logo>
   <li><a href="#signup">Sign Up</a></li>
   <li><a href="#login">Login</a></li>
 </ul>
-
+<div id="content">
+    {% block content %}{% endblock %}
+  </div>
 </body>
 </html>
