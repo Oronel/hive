@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from first_app.models import User,Feed
+from first_app.models import Feed, User
 from . import forms
-from first_app.forms import UserLoginForm
+from first_app.forms import UserSignupForm
 
 
 def index(request):
@@ -18,31 +18,13 @@ def homepage(request):
 
 
 def signup(request):
-    registered = False
-
+    form = forms.UserSignupForm()
     if request.method == 'POST':
-        user_form = forms.UserLoginForm(data=request.POST)
-       
+        form = forms.UserSignupForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else: 
+            print('Error - form is invalid')
 
-        if user_form.is_valid():
-            user = user_form.save()
-            user.set_password(user.password)
-            user.save()
-
-
-            if 'profile_pic' in request.FILES:
-                profile.profile_pic = request.FILES['profile_pic']
-
-            profile.save()
-            registered = True
-
-        else:
-            print(user_form.errors)
-    else:
-        user_form = UserLoginForm()
-     
-
-    return render(request, 'signup.html', {
-        'user_form': user_form,
-        'registered': registered
-        })
+    return render(request, 'signUp.html',{'form': form})
