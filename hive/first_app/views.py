@@ -8,8 +8,7 @@ from first_app.forms import UserSignupForm
 def index(request):
 	return render(request, 'home.html')
 
-def loginpage(request):
-    return render(request, 'login.html') 
+
 
 def homepage(request):
 	feeds = {'feed' : Feed.objects.all().order_by('text')[:20]

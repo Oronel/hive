@@ -2,6 +2,7 @@ from django import forms
 from first_app.models import Feed, User
 
 
+
 class UserSignupForm(forms.ModelForm):
 	password = forms.CharField(widget= forms.PasswordInput())
 	class Meta():
