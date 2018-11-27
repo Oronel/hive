@@ -12,14 +12,18 @@
  {% for feeds in feed %}
 
 
- <p> User : {{feeds.user}}</p>
- <p>{{feeds.text}}</p>
- <p>Likes :{{feeds.like}}</p>
- <p> Date :{{feeds.date}}</p>
- <p> --------------- </p>
-
-
-
+ <div class="panel panel-default">
+ <div class="panel-body">
+  <div class="well">
+   <p> User : {{feeds.user}}</p>
+   <p>{{feeds.text}}</p>
+   <button onclick="alert('Liked!')">
+    <i class="far fa-thumbs-up"> {{feeds.like}}</i>
+   </button>
+   <p> Date: {{feeds.date}}</p>
+  </div>
+ </div>
+</div> 
 
 ​ {% endfor %}
 

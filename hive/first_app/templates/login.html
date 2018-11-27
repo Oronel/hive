@@ -3,7 +3,27 @@
 {% block content %}
 
 
+<title>Login Page</title>
+</head>
+<body>
 
+ <h1>Login Page</h1>
+<section class="login-section">
+    <h3>Login</h3>
+    <form>
+      <div>
+        <label for="username">Username</label><br>
+        <input type="text" id="username-field" name="username" placeholder="username">
+      </div>
+      <div>
+        <label for="password">Password</label><br>
+        <input type="password" id="password-field" name="password" placeholder="password">
+      </div>
+      <div>
+        <input type="button" name="submit" onclick="submitLogin()" disabled value="login">
+      </div>
+    </form>
+  </section> 
 
 
 
