@@ -5,7 +5,7 @@ from django.db import models
 
 class User(models.Model):
 	user_name = models.CharField(max_length=264, unique=True)
-	email = models.EmailField(max_length=264)
+	email = models.EmailField(max_length=264, unique=True)
 	full_name = models.CharField(max_length=264)
 	password = models.CharField(max_length=264)
 	bio = models.CharField(max_length=264)
@@ -15,6 +15,7 @@ class User(models.Model):
 
 	def __str__(self):
 		return self.full_name
+
 
 
 
