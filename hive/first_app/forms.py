@@ -6,8 +6,8 @@ from first_app.models import Feed, User
 class UserSignupForm(forms.ModelForm):
 	password = forms.CharField(widget= forms.PasswordInput())
 	class Meta():
-	    model = User
-	    fields = ('email','full_name','user_name','password')
+		model = User
+		fields = ('email','first_name','username','password')
 
 
 class FeedForm(forms.Form):
@@ -17,5 +17,5 @@ class FeedForm(forms.Form):
 class UserLoginForm(forms.ModelForm):
 	password = forms.CharField(widget= forms.PasswordInput())
 	class Meta():
-	    model = User
-	    fields = ('email','password')
+		model = User
+		fields = ('email','password')
