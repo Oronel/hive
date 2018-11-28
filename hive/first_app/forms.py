@@ -14,3 +14,8 @@ class FeedForm(forms.Form):
   text = forms.CharField(max_length=140, widget=forms.Textarea)
 
 
+class UserLoginForm(forms.ModelForm):
+	password = forms.CharField(widget= forms.PasswordInput())
+	class Meta():
+	    model = User
+	    fields = ('email','password')

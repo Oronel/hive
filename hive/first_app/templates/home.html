@@ -9,18 +9,22 @@
 ​
  <h1>Home Page</h1>
 
- {% for feeds in feed %}
+
+ {% for feed in feeds %}
+ 
 
 
  <div class="panel panel-default">
  <div class="panel-body">
   <div class="well">
-   <p> User : {{feeds.user}}</p>
-   <p>{{feeds.text}}</p>
+ <a href="{% url 'first_app:profile_feed' feed.user.id  %}"> 
+ 	{{feed.user}}
+ </a>
+   <p>{{feed.text}}</p>
    <button onclick="alert('Liked!')">
-    <i class="far fa-thumbs-up"> {{feeds.like}}</i>
+    <i class="far fa-thumbs-up"> {{feed.like}}</i>
    </button>
-   <p> Date: {{feeds.date}}</p>
+   <p> Date: {{feed.date}}</p>
   </div>
  </div>
 </div> 

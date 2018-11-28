@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block header_title %} First page {% endblock %}
+{% block content %}
+
+
+
+ <h1>Login Page</h1>
+<h2>Login</h2>
+<form method="post" action="{% url 'login' %}">
+  {% csrf_token %}
+  {{ login_form.as_p }}
+  <button type="submit">Login</button>
+</form>
+
+<h1>Sign Up </h1>
+	<h2>Welcome, give us informations</h2>
+		<form method="POST" action="{% url 'first_app:signup' %}">
+			{{signup_form.as_p}}
+			<input type="submit" name="send" value="Submit">
+			{% csrf_token %}
+		</form>
+		​
+
+
+
+
+
+
+
+
+
+
+ {% endblock %}
