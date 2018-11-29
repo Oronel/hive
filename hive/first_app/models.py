@@ -6,13 +6,10 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, unique=True)
-    follows = models.ManyToManyField(User, related_name='followers', symmetrical=False)
+    follows = models.ManyToManyField('UserProfile', related_name='followed_by', symmetrical=False, blank=True)
     bio = models.CharField(max_length=264)
     profile_pic = models.ImageField(upload_to='profile_pics', blank=True)
 
-
-    def __repr__(self):
-        return "<User: {}>".format(user.username)
 
     def __str__(self):
         return self.user.username

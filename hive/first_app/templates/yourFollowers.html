@@ -3,9 +3,13 @@
 {% block content %}
 
 
-
-
-
+<h1> This the followeers of : {{ user.username }} la groooooosse pute
+</h1>
+{% for follow in followers %}
+<p>
+	{{ follow.user.username }}
+</p>
+{% endfor %}
 
 
  {% endblock %}

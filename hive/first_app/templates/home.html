@@ -10,16 +10,15 @@
  <h1>Home Page</h1>
 
 
- {% for feed in feeds %}
+ {% for feed_list in feeds %}
  
 
-
+{% for feed in feed_list %}
  <div class="panel panel-default">
  <div class="panel-body">
   <div class="well">
- <a href="{% url 'first_app:profile_feed' feed.user.id  %}"> 
- 	{{feed.user}}
- </a>
+  	<pre>
+  	{{ feed.user }}</pre>
    <p>{{feed.text}}</p>
    <button onclick="alert('Liked!')">
     <i class="far fa-thumbs-up"> {{feed.like}}</i>
@@ -28,8 +27,7 @@
   </div>
  </div>
 </div> 
-
+{% endfor %}
 ​ {% endfor %}
-
 
  {% endblock %}

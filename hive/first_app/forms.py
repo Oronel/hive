@@ -1,5 +1,6 @@
 from django import forms
-from first_app.models import Feed, User
+from first_app.models import Feed, UserProfile
+from django.contrib.auth.models import User
 
 
 
