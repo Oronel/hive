@@ -48,6 +48,6 @@ def follow(request, user_id):
 def profile_feed(request):
 	user_id = request.user.id
 	return render(request, 'home.html',context={
-		# 'user': get_all_user_id(user_id),
+		'user': get_all_user_id(user_id),
 		'feeds': get_follow_feed(user_id)
 	})

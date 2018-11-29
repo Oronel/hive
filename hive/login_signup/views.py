@@ -1,18 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from first_app.models import Feed, User
-from django.contrib.auth import authenticate
+from first_app.models import Feed, UserProfile
+from django.contrib.auth import authenticate, login
 from . import forms
+from django.contrib.auth.models import User
 
 # Create your views here.
 
-def login(request):
+def log_in(request):
     errors = False
     if request.method == 'POST':
         login_form = forms.UserLoginForm(request.POST)
         if login_form.is_valid():
-            clean_data = login_form.clean()
+            clean_data = login_form.clean_email()
             user = authenticate(username=clean_data['username'], password=clean_data['password'])
+            print(user)
 
             if user is not None:
                 login(request, user)
@@ -51,7 +53,7 @@ def signup(request):
         else :
             print(user_form.errors, profile_form.errors)
 
-    else: 
+    else:  
         user_form = forms.UserSignupForm()
         profile_form = forms.UserProfileForm()
 

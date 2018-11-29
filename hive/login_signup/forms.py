@@ -1,4 +1,5 @@
 from django import forms
+from django.core import validators
 from first_app.models import Feed, UserProfile
 from django.contrib.auth.models import User
 
@@ -19,8 +20,11 @@ class UserProfileForm(forms.ModelForm):
         email = self.cleaned_data['email']
         username = self.cleaned_data['username'] 
 
-class UserLoginForm(forms.ModelForm):
+class UserLoginForm(forms.Form): 
+    username = forms.CharField(max_length= 150)
     password = forms.CharField(widget= forms.PasswordInput())
-    class Meta():
-        model = User
-        fields = ('email','password')
+
+    def clean_email(self):
+        all_clean_data = super().clean()
+        return all_clean_data
+
