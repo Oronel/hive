@@ -5,8 +5,6 @@ app_name='first_app'
 
 urlpatterns = [
 # path('home/', views.homepage, name='homepage'),
-path('signup/', views.signup, name='signup'),
-path('home/<int:user_id>/', views.profile_feed, name='profile_feed'),
-path('first/', views.login_and_signup, name='login_and_signup'),
+path('home/', views.profile_feed, name='profile_feed'),
 path('home/yourFollowers/<int:user_id>', views.follow, name='followers'),
 ]
