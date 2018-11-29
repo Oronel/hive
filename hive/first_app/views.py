@@ -48,4 +48,5 @@ def login_and_signup(request):
         'login_form': login_form
         })
 
-
+def publish(request):
+    return render(request, 'publish.html')

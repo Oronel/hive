@@ -4,9 +4,9 @@
 
 
 
- <h1>Login Page</h1>
+
 <h2>Login</h2>
-<form method="post" action="{% url 'login' %}">
+<form class ='login-section' method="post" action="{% url 'login' %}">
   {% csrf_token %}
   {{ login_form.as_p }}
   <button type="submit">Login</button>
