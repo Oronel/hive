@@ -5,11 +5,10 @@
 
 
 <p> Info: </p>
-<p> {{user.0.email}} </p>
+<p> {{user.email}} </p>
 <p> {{user.first_name}} </p>
-<p> {{user.0.bio}} </p>
-<p>     </p>
-<h1>This feed of : {{user.0.full_name}} </h1>
+<p> {{user.bio}} </p>
+<h1>This feed of : {{user.full_name}} </h1>
 
 {% for tweet in feeds %}
 <p> {{tweet.text}} </p>

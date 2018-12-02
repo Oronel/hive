@@ -44,8 +44,9 @@
       </button>
       <a href="{% url 'first_app:publish' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Publish</a>
         <logo class="profilelogo">
-        <a href="{% url 'first_app:profile' %}" class="navbar-left">
-        <img src="{% static 'images/avatar.png' %}"></a>
+          <a href="{% url 'first_app:my_profile'  %}" class="navbar-left">
+            <img src="{% static 'images/avatar.png' %}">
+          </a>
         </logo>
       <a href="{% url 'login_signup:login' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Logout</a>
     </form>

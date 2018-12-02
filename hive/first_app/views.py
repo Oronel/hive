@@ -34,8 +34,16 @@ def get_follow_feed(user_id):
 def publish(request):
     return render(request, 'publish.html')
 
-def profile(request):
-    return render(request, 'profile.html')
+def my_profile(request):
+    return render(request, 'my_profile.html')
+
+
+
+def profile(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    profile = get_object_or_404(UserProfile, user=user)
+    feeds = Feed.objects.filter(user= profile)
+    return render(request, 'profile.html', {'feeds': feeds,'user': user })
 
 
 def homepage(request):
