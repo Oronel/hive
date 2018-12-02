@@ -48,6 +48,8 @@ def signup(request):
 
             profile.save()
             registered = True
+            return redirect('/login_signup/login/')
+
 
 
         else :

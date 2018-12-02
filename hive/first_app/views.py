@@ -17,17 +17,17 @@ def get_all_user_id(user_id):
 def get_follow_feed(user_id):
 	user = get_object_or_404(User, id=user_id)
 	profile = get_object_or_404(UserProfile, user=user)
-	print(user)
+
 	followers = profile.follows.all()
-	print(followers)
+
 	feed_by_user = []
 	for foll in followers:
-		print(foll)
+
 		feeds = Feed.objects.filter(user= foll)
-		print(feeds)
-		print('#####################')
+
+
 		feed_by_user.append(feeds)
-	print(feed_by_user)
+
 
 	return feed_by_user
 
