@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 {% load staticfiles %}
+
 <html>
 <head>
-  <title>
-  {% block header_title %} Hive project {% endblock %}
-</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <!--  mmmm -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,65 +19,42 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 
-
-
-<style>
-
-
-
-body {
-    font-size: 28px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    background-color: #111;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
-}
-
-li {
-    float: right;
-}
-logo {
-    float: left;
-    margin: -40px 0px -40px 0px;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 50px 50px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #111;
-}
-
-.active {
-    color: white;
-}
-</style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <logo>
+        <a href="{% url 'first_app:home' %}" class="navbar-left">
+        <img src="{% static 'images/hive.jpg' %}"></a>
+    </logo>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'first_app:home' %}">Home
+            <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+      </button>
+      <a href="{% url 'first_app:publish' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Publish</a>
+        <logo class="profilelogo">
+        <a href="{% url 'first_app:profile' %}" class="navbar-left">
+        <img src="{% static 'images/avatar.png' %}"></a>
+        </logo>
+      <a href="{% url 'login_signup:login' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Logout</a>
+    </form>
+  </div>
+</nav>
 
 
-
-
-<ul style="height: 120px">
-  <logo><a class="active" href="#home">
-    <img src="{% static 'images/hive.jpg' %}">
-  </a></logo>
-  <li><a href="#signup">Sign Up</a></li>
-  <li><a href="#login">Login</a></li>
-</ul>
 <div id="content">
     {% block content %}{% endblock %}
-  </div>
+</div>
 </body>
 </html>

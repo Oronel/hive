@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.panel.panel-default {
+  background-color: MintCream;
+}
+
+.panel-body {
+  background-color: rgb(61, 63, 70);
+  padding: 2px;
+}
+
+.well {
+  background-color: #e9ecef;
+}
+
+h1 {
+    text-align: center;
+}
+
+.login-body h1{
+  color: whitesmoke;
+}
+
+.login-body body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #eee;
+
+}
+
+.login-section {
+  width: 380px;
+  padding: 15px;
+  margin-left: calc(50% - 170px);
+  margin-top: 30px;
+  border: 1px solid rgb(206, 155, 4);
+  border-radius: 18px;
+  background-color: rgba(0,0,0,.75);
+  color: white;
+}
+
+/*interieur de la saisie*/
+.login-section input[type="text"], input[type="password"], input[type="email"] {
+  margin: 5px 0;
+  width: calc(100% - 10px);
+  padding: 5px;
+  font-size: 25px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
+  color: gray;
+}
+
+/*longueur de la case et font du label username et password*/
+.login-section label {
+  display: inline-block;
+  margin: 15px 0 5px 0;
+  font-size: 35px;
+  color: whitesmoke;
+}
+
+/*bouton login*/
+/*submit style*/
+.login-section input[type="submit"], .profile input[type="button"], .confirmation-popup input[type="button"] {
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+  color: white;
+  background-color: #e67e22;
+  border: none;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 36px;
+  font-weight: 500;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+/*submit style*/
+.login-section input[type="submit"]:hover, .profile input[type="button"]:hover, .confirmation-popup input[type="button"]:hover {
+  cursor: pointer;
+  border: 3px solid gold;
+  padding: 7px 0;
+}
+
+.login-section input[type="text"], input[type="password"], input[type="button"], input[type="email"] {
+  outline: none;
+}
+
+.login-section h3 {
+  border-bottom: 1px solid #fecc5c;
+  line-height: 40px;
+  margin-top: -15px;
+  font-size: 38px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+.profile.loggedin-mode input[type="text"] {
+  margin: 5px 0 15px 0;
+  width: calc(100% - 14px);
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #ffb23f;
+  padding: 5px 7px;
+  outline: none;
+}
+
+.confirmation-popup {
+  position: absolute;
+  padding: 10px;
+  width: 300px;
+  left: 50%;
+  margin-left: -150px;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: white;
+  top: -200px;
+}
+
+/*couleur bouton login*/
+/*submit style*/
+input[type="submit"]:disabled {
+  background-color: #ff6d00;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+}
+
+/*couleur bordure bouton hover login*/
+/*submit style*/
+input[type="submit"]:hover:disabled {
+  border: 3px solid #babe53;
+  cursor: not-allowed;
+  border-radius: 5px;
+}
+
+body {
+    background: url(" http://pluto.tv.s3.amazonaws.com/assets/images/channels/94c00b9b-c823-6d69-6d0b-e64daad439ac-Hive_featured.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-size: 28px;
+    color: white;
+}
+
+.navbar {
+ background-color: lightslategrey;
+ position: -webkit-sticky;
+}
+
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: #2f3c4840!important;
+    position: -webkit-sticky;
+}
+
+ul {
+  list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+li {
+    float: right;
+}
+
+logo {
+    float: left;
+    margin: -40px 0px -40px 0px;
+}
+
+.profilelogo {
+    float: left;
+    margin: -40px 0px -40px 0px;
+
+}
+
+.collapse form button{
+    margin: 0 500px 0 0;
+}
+
+.form-inline a {
+  height: 40px;
+  margin: 0 8px;
+}
+.profilelogo img {
+  height: 50px;
+  margin: 0 8px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-danger{
+    background-color: #e67e22 !important;
+}
+.btn-lg active{
+    background-color: #e67e22 !important;
+}
+
+.active {
+    color: white;
+}
+
+.navbuttonlog {
+  opacity: 80%;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 27px;
+  font-weight: 500;
+  border-radius: 50px;
+  margin-top: 30px;
+  margin-left:85%;
+}
+
+.left-panel {
+  float: left;
+  margin-left:300px;
+  width: 200px;
+}
+
+.right-panel {
+  float: right;
+  width: calc(100% - 500px);
+}

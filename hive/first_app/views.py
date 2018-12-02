@@ -31,6 +31,12 @@ def get_follow_feed(user_id):
 
 	return feed_by_user
 
+def publish(request):
+    return render(request, 'publish.html')
+
+def profile(request):
+    return render(request, 'profile.html')
+
 
 def homepage(request):
 	feeds = {'feeds' : Feed.objects.all().order_by('text')[:20]
