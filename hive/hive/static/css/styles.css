@@ -149,12 +149,14 @@ body {
 
 .navbar {
  background-color: lightslategrey;
- position: -webkit-sticky;
+ position: sticky;
+ top: 0;
 }
 
 .navbar.navbar-expand-lg.navbar-light.bg-light {
     background-color: #2f3c4840!important;
-    position: -webkit-sticky;
+    position: sticky;
+
 }
 
 ul {

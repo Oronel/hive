@@ -49,14 +49,15 @@
 </nav>
 
 
-<div id="content">
-    <h1>Fill the Login form</h1>
-    <form enctype="multipart/form-data" method='POST'>
-        {% csrf_token %}
-        {{ login_form.as_p }}
-        <input type="submit" value='signup'>
-    </form>
-
-</div>
+<section class="left-panel">
+    <section class="login-section">
+        <h3>Login</h3>
+        <form enctype="multipart/form-data" method='POST'>
+            {% csrf_token %}
+            {{ login_form.as_p }}
+            <input type="submit" value='signup'>
+        </form>
+    </section>
+</section> 
 </body>
 </html>

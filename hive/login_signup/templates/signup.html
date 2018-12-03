@@ -49,8 +49,9 @@
 </nav>
 
 
-<div id="content">
-    <h1>Sign Up </h1>
+<section class="left-panel">
+    <section class="login-section">
+    <h3>Sign Up </h3>
     <h2>Welcome, give us informations</h2>
         <form enctype="multipart/form-data" method='POST'>
             {% csrf_token %}
@@ -59,8 +60,7 @@
             <input type="submit" value="signup">
             {% csrf_token %}
         </form>
-        
-
-</div>
+    </section>
+</section>  
 </body>
 </html>

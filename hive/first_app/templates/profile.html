@@ -3,19 +3,30 @@
 {% block content %}
 
 
+<div class="panel panel-default">
+ <div class="panel-body">
+  <div class="well">
 
-<p> Info: </p>
-<p> {{user.email}} </p>
-<p> {{user.first_name}} </p>
-<p> {{user.bio}} </p>
-<h1>This feed of : {{user.full_name}} </h1>
+<h2> Info: </h2>
+<p>EMAIL:    {{user.email}} </p>
+<p>USERNAME:    {{user.username}} </p>
+<p>BIO:    {{prof.bio}} </p>
+</div>
+ </div>
+</div> 
+<h1>This feed of : {{user.username}} </h1>
 
 {% for tweet in feeds %}
+<div class="panel panel-default">
+ <div class="panel-body">
+  <div class="well">
 <p> {{tweet.text}} </p>
 <p> Date : {{tweet.date}} </p>
 <p> Likes : {{tweet.like}} </p>
 <p> --------------- </p>
-
+</div>
+ </div>
+</div> 
 {% endfor %}
 
  
