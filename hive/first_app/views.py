@@ -35,8 +35,18 @@ def publish(request):
     return render(request, 'publish.html')
 
 def my_profile(request):
-    return render(request, 'my_profile.html')
-
+	user_id = request.user.id
+	user = get_object_or_404(User, id=user_id)
+	profile = get_object_or_404(UserProfile, user=user)
+	print(profile)
+	print("#############")
+	feeds = Feed.objects.filter(user= profile)
+	print(feeds)
+	return render(request, 'my_profile.html',context={
+		'user': user,
+		'feeds': feeds
+	})
+    
 
 
 def profile(request, username):

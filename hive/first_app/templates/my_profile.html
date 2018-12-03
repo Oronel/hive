@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block header_title %} Hive project {% endblock %}
+{% block content %}
+
+
+<p> Your info: </p>
+<p> {{user.email}} </p>
+<p> {{user.username}} </p>
+
+{% for tweet in feeds %}
+<p> {{tweet.text}} </p>
+<p> Date : {{tweet.date}} </p>
+<p> Likes : {{tweet.like}} </p>
+<p> --------------- </p>
+
+{% endfor %}
+
+
+ {% endblock %}

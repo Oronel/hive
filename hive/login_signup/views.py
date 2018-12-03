@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from first_app.models import Feed, UserProfile
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from . import forms
 from django.contrib.auth.models import User
 
@@ -24,10 +24,13 @@ def log_in(request):
                 errors = True
     else:
         login_form = forms.UserLoginForm()
+        logout(request)
 
     return render(request, 'login.html', {
             'login_form': login_form,
             'errors': errors,})
+
+
 
 def signup(request):
     registered = False
