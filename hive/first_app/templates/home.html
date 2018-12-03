@@ -11,22 +11,22 @@
  {% for feed_list in feeds %}
  
 
-{% for feed in feed_list %}
- <div class="panel panel-default">
- <div class="panel-body">
-  <div class="well">
-    <a href="{% url 'first_app:profile' feed.user_id %}">
-     <h3>{{feed.user}}</h3>
-    </a>
-   <p>{{feed.text}}</p>
-   <button onclick="alert('Liked!')">
-    <i class="far fa-thumbs-up"> {{feed.like}}</i>
-   </button>
-   <p> Date: {{feed.date}}</p>
-  </div>
- </div>
-</div> 
-{% endfor %}
+  {% for feed in feed_list %}
+   <div class="panel panel-default">
+   <div class="panel-body">
+    <div class="well">
+      <a href="{% url 'first_app:profile' feed.user_id %}">
+       <h3>{{feed.user}}</h3>
+      </a>
+     <p>{{feed.text}}</p>
+     <button onclick="alert('Liked!')">
+      <i class="far fa-thumbs-up"> {{feed.like}}</i>
+     </button>
+     <p> Date: {{feed.date}}</p>
+    </div>
+   </div>
+  </div> 
+  {% endfor %}
 ​ {% endfor %}
 
  {% endblock %}
