@@ -7,6 +7,6 @@ urlpatterns = [
 path('home/', views.profile_feed, name='home'),
 path('home/yourFollowers/', views.follow, name='followers'),
 path('home/publish/', views.publish, name='publish'),
-path('home/profile/<int:user_id>', views.profile, name='profile'),
+path('home/profile/<username>', views.profile, name='profile'),
 path('home/my_profile/', views.my_profile, name='my_profile'),
 ]

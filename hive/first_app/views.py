@@ -39,8 +39,8 @@ def my_profile(request):
 
 
 
-def profile(request, user_id):
-    user = get_object_or_404(User, id=user_id)
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
     profile = get_object_or_404(UserProfile, user=user)
     feeds = Feed.objects.filter(user= profile)
     return render(request, 'profile.html', {'feeds': feeds,'user': user })
