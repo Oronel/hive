@@ -11,4 +11,6 @@ path('home/profile/<username>', views.profile, name='profile'),
 path('home/my_profile/', views.my_profile, name='my_profile'),
 path('home/all_users', views.all_users, name='all_users'),
 path('home/search_user/', views.search_user, name='search_user'),
+path('home/edit_profile', views.edit_page, name='edit_page'),
+path('home/search_user/', views.search_user, name='search_user'), 
 ]

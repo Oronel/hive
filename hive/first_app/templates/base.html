@@ -39,11 +39,11 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" method="GET" action=" ">
-      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{request.GET.q}}"/>
-      <a  href="{% url 'first_app:search_user'  %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-      </a> 
+      <input href="{% url 'first_app:search_user'  %}" class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{request.GET.q}}"/>
+      <input   class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search" />
       <div class ="btn-btn-user">
                 <a href="{% url 'first_app:all_users' %}" class="btn-lg active" role="button" aria-pressed="true">Users</a>
+
 
             </div>
       <a href="{% url 'first_app:publish' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Publish</a>
@@ -52,6 +52,7 @@
             <img src="{% static 'images/avatar.png' %}">
           </a>
         </logo>
+         <a href="{% url 'first_app:edit_page' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Edit</a>
       <a href="{% url 'login_signup:login' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Logout</a>
     </form>
   </div>

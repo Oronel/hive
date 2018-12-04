@@ -197,6 +197,7 @@ logo {
 
 }
 
+
 .collapse form button{
     margin: 0 500px 0 0;
 }
@@ -228,6 +229,34 @@ li a {
     color: white;
 }
 
+
+.single_edit_form {
+    float: left;
+    width: 40%;
+    margin: 2% 5%;
+    padding: 1%;
+    border-style: inset;
+    border-width: 1px;
+    border-color: grey;
+}
+
+/* Clear floats after the columns */
+.edit_forms:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.form_username_exists p {
+    display: table-cell;
+    border-style: solid;
+    border-color: red;
+    border-width: 1px;
+    padding: 5px;
+}
+
+
+
 .navbuttonlog {
   opacity: 80%;
   color: white;
@@ -250,4 +279,7 @@ li a {
 .right-panel {
   float: right;
   width: calc(100% - 500px);
+}
+.textarea{
+  color:black;
 }
