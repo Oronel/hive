@@ -52,7 +52,7 @@
 <section class="left-panel">
     <section class="login-section">
         <h3>Login</h3>
-        <form enctype="multipart/form-data" method='POST'>
+        <form method='POST'>
             {% csrf_token %}
             {{ login_form.as_p }}
             <input type="submit" value='signup'>

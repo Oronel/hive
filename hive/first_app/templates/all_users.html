@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block header_title %} Hive project {% endblock %}
+{% block content %}
+
+
+<h1> All Hivers: </h1>
+
+
+{% for user in users %}
+<div class="panel panel-default">
+ <div class="panel-body">
+  <div class="well">
+
+ <a href="{% url 'first_app:profile' user.user.username %}">
+    
+<p> USERNAME:  {{user.user.username}} </p> </a>
+<p> Bio:  {{user.bio}} </p>
+
+</div>
+ </div>
+</div> 
+
+
+{% endfor %}
+
+
+
+ {% endblock %}

@@ -42,6 +42,10 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
       </button>
+      <div class ="btn-btn-user">
+                <a href="{% url 'first_app:all_users' %}" class="btn-lg active" role="button" aria-pressed="true">Users</a>
+
+            </div>
       <a href="{% url 'first_app:publish' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Publish</a>
         <logo class="profilelogo">
           <a href="{% url 'first_app:my_profile'  %}" class="navbar-left">

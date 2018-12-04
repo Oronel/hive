@@ -6,7 +6,8 @@ app_name='first_app'
 urlpatterns = [
 path('home/', views.profile_feed, name='home'),
 path('home/yourFollowers/', views.follow, name='followers'),
-path('home/publish/', views.publish, name='publish'),
+path('home/publish/', views.create_feed, name='publish'),
 path('home/profile/<username>', views.profile, name='profile'),
 path('home/my_profile/', views.my_profile, name='my_profile'),
+path('home/all_users', views.all_users, name='all_users'),
 ]

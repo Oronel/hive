@@ -17,6 +17,20 @@
   background-color: #e9ecef;
 }
 
+.btn-btn-user{
+    background-color: #1c8adb;
+    border-radius: 50px;
+    width:100px;
+    height: 40px;
+    padding:10px 0;
+    color:white;
+}
+
+.btn{
+    float: right;
+    margin: 50px;
+}
+
 h1 {
     text-align: center;
 }
