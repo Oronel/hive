@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from first_app.models import Feed, UserProfile
 from . import forms
 from django.shortcuts import get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 
@@ -13,6 +14,31 @@ def index(request):
 def get_all_user_id(user_id):
 	user = User.objects.filter(id = user_id)
 	return user
+
+def search_user(request):
+    queryset_list = User.objects.all()
+    if request.user.is_staff or request.user.is_superuser:
+        queryset_list = User.objects.all()
+    query = request.GET.get("q")
+    print('your sister')
+    if query:
+        queryset_list = queryset_list.filter(
+            Q(title__icontains=query)|
+            Q(content__icontains=query)|
+            Q(author__icontains=query)|
+            Q(user__first_name__icontains=query)|
+            Q(user__username__icontains=query)
+            ).distinct()
+        print('ouais mongars')
+    paginator = Paginator(queryset_list, 10)
+    page_request_var = "page"
+    page = request.GET.get(page_request_var)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+         queryset = paginator.page(1)
+    return render(request, 'search_user.html', {'queryset': queryset, 'page_request_var': page_request_var})
+
 
 def get_follow_feed(user_id):
 	user = get_object_or_404(User, id=user_id)
@@ -40,7 +66,7 @@ def my_profile(request):
 	profile = get_object_or_404(UserProfile, user=user)
 	print(profile)
 	print("#############")
-	feeds = Feed.objects.filter(user= profile)
+	feeds = Feed.objects.filter(user= profile).order_by('-date')
 	print(feeds)
 	return render(request, 'my_profile.html',context={
 		'user': user,
@@ -62,7 +88,8 @@ def homepage(request):
 	return render(request, 'home.html', context=feeds)
 
 
-def follow(request, user_id):
+def follow(request):
+	user_id = request.user.id
 	user = get_object_or_404(User, id=user_id)
 	fol = get_object_or_404(UserProfile, user=user)
 	followers = fol.follows.all()

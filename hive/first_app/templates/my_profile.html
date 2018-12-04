@@ -4,7 +4,9 @@
 
  <div class="panel panel-default">
  <div class="panel-body">
+ 		<a href="{% url 'first_app:followers' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Followers</a>
   <div class="well">
+
 <p> Your info: </p>
 <p> {{user.email}} </p>
 <p> {{user.username}} </p>

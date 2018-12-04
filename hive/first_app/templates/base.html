@@ -38,10 +38,10 @@
         </a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-      </button>
+    <form class="form-inline my-2 my-lg-0" method="GET" action=" ">
+      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search" aria-label="Search" value="{{request.GET.q}}"/>
+      <a  href="{% url 'first_app:search_user'  %}" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
+      </a> 
       <div class ="btn-btn-user">
                 <a href="{% url 'first_app:all_users' %}" class="btn-lg active" role="button" aria-pressed="true">Users</a>
 
