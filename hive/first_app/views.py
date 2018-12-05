@@ -10,39 +10,7 @@ from first_app.forms import ProfileEditForm, PasswordEditForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password, make_password
-
-
-
-def index(request):
-	return render(request, 'home.html')
-
-def get_all_user_id(user_id):
-	user = User.objects.filter(id = user_id)
-	return user
-
-def search_user(request):
-	queryset_list = User.objects.all()
-	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = User.objects.all()
-	query = request.GET.get("q")
-	print('your sister')
-	if query:
-		queryset_list = queryset_list.filter(
-			Q(title__icontains=query)|
-			Q(content__icontains=query)|
-			Q(author__icontains=query)|
-			Q(user__first_name__icontains=query)|
-			Q(user__username__icontains=query)
-			).distinct()
-		print('ouais mongars')
-	paginator = Paginator(queryset_list, 10)
-	page_request_var = "page"
-	page = request.GET.get(page_request_var)
-	try:
-		queryset = paginator.page(page)
-	except PageNotAnInteger:
-		 queryset = paginator.page(1)
-	return render(request, 'search_user.html', {'queryset': queryset, 'page_request_var': page_request_var})
+from django.db.models import Q
 
 
 def get_follow_feed(user_id):
@@ -88,9 +56,10 @@ def profile(request, username):
 
 
 def homepage(request):
-	feeds = {'feeds' : Feed.objects.all().order_by('-date')
-	}
-	return render(request, 'home.html', context=feeds)
+	use = request.user
+	user = UserProfile.objects.get(user=use)
+	feeds = Feed.objects.all().order_by('-date')
+	return render(request, 'home.html', {'feeds' : feeds, 'user': user})
 
 
 def follow(request):
@@ -103,8 +72,10 @@ def follow(request):
 
 def profile_feed(request):
 	user_id = request.user.id
+	user = request.user
+	userprofile = UserProfile.objects.get(user=user)
 	return render(request, 'home.html',context={
-		'user': get_all_user_id(user_id),
+		'user': user,
 		'feeds': get_follow_feed(user_id)
 	})
 
@@ -135,7 +106,9 @@ def create_feed(request):
 	return render(request, 'publish.html', {'form': form,})
 
 def search_user(request):
+
     queryset_list = UserProfile.objects.all()
+    print('ntm')
     if request.user.is_staff or request.user.is_superuser:
         queryset_list = UserProfile.objects.all()
     query = request.GET.get("q")
@@ -221,3 +194,22 @@ def edit_page(request):
                 'password_error': password_error,
                 'user': request.user,
             })
+
+@login_required       
+def followers(request, user_id):
+    current_profile= UserProfile.objects.get(user= request.user)
+    user_to_follow= User.objects.get(id= user_id)
+    followed_profile= UserProfile.objects.get(user= user_to_follow)
+    current_profile.follows.add(followed_profile)
+    return redirect(reverse('first_app:profile', args=[user_to_follow.username]))
+
+
+
+@login_required
+def unfollow(request, user_id):
+    current_profile= UserProfile.objects.get(user= request.user)
+    user_to_follow= User.objects.get(id= user_id)
+    followed_profile= UserProfile.objects.get(user= user_to_follow)
+    current_profile.follows.remove(followed_profile)
+    return redirect(request, 'profile.html')
+
