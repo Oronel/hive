@@ -6,7 +6,12 @@
 <div class="panel panel-default">
  <div class="panel-body">
   <div class="well">
+
+  	{% if user.username not in foll %}
   	<a class="btn btn-danger btn-lg active" href="{% url 'first_app:follow' user.id %}" role="button" aria-pressed="true">Follow</a>
+  	{%else%}
+  	<a class="btn btn-danger btn-lg active" href="{% url 'first_app:unfollow' user.id %}" role="button" aria-pressed="true">UnFollow</a>
+  	{%endif%}
 
 <h2> Info: </h2>
      <p><u><b>EMAIL</b></u>:    {{user.email}}</p>

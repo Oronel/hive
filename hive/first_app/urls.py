@@ -13,4 +13,6 @@ path('home/all_users', views.all_users, name='all_users'),
 path('home/edit_profile', views.edit_page, name='edit_page'),
 path('home/search_user/', views.search_user, name='search_user'),
 path('home/followers/<int:user_id>/', views.followers, name='follow'),
+path('home/unfollowers/<int:user_id>/', views.unfollow, name='unfollow'),
+
 ]

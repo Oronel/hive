@@ -50,7 +50,7 @@
       <a href="{% url 'first_app:publish' %}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Publish</a>
         <logo class="profilelogo">
           <a href="{% url 'first_app:my_profile'  %}" class="navbar-left">
-            {% if user.userprofileinfo.profile_pic %}
+            {% if not user.userprofile.profile_pic %}
             <img src="{% static 'images/avatar.png' %}" ></a>
             {% else %}
             <img src="{{user.userprofile.profile_pic.url}}" ></a>
